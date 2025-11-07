@@ -14,8 +14,14 @@ public class Menu {
             System.out.println("5. Testar com 1000 threads");
             System.out.println("0. Sair");
             System.out.print("\nEscolha uma opção: ");
-            
-            opcao = scanner.nextInt();
+
+            if (scanner.hasNextInt()) {
+                opcao = scanner.nextInt();
+            } else {
+                System.out.println("Opção inválida! Por favor, digite um número.");
+                scanner.next(); // Consume the invalid input
+                continue;
+            }
             
             if (opcao == 1) {
                 testarModelos(10);
